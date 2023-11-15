@@ -15,7 +15,6 @@ class TestersenApplicationTests : TestFetch {
 
 	@Test
 	fun `get mdc values`() {
-		@Suppress("UNCHECKED_CAST")
 		val mdc = fetch<Map<String, String?>>("/").body
 		println(mdc)
 	}
