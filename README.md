@@ -71,12 +71,16 @@ application properties.
 <!-- @formatter:off -->
 <!-- @noinspection -->
 ```java
-registry.define(
-  "request.id",
-  false, // enabled = false | true
-  (context) -> Optional.ofNullable(((HttpServletRequest) context.get("request")).getHeader("x-request-id"))
-    .orElse(UUID.randomUUID())
-)
+public class MyDefaultMdcMappers {
+  MyDefaultMdcMappers(KeyRegistry registry) {
+    registry.define(
+      "request.id",
+      false, // enabled = false | true
+      (context) -> Optional.ofNullable(((HttpServletRequest) context.get("request")).getHeader("x-request-id"))
+        .orElse(UUID.randomUUID())
+    );
+  }
+}
 ```
 <!-- @formatter:on -->
 
