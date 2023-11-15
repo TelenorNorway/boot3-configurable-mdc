@@ -40,3 +40,7 @@ publishing {
 		from(components["kotlin"])
 	}
 }
+
+tasks.named("bootJar") {
+	enabled = false
+}
