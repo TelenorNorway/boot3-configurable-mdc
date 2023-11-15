@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RestController
 class TestController {
 	private val log = LoggerFactory.getLogger(javaClass)!!
 
+	@Suppress("unused")
 	@GetMapping
 	fun getMdcValues(): Map<String, String?> = MDC.getCopyOfContextMap() ?: emptyMap()
 
+	@Suppress("unused")
 	@GetMapping("/test")
 	fun test() {
 		log.info("Hello from test")

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 class ControllerAdvice {
 	val log = LoggerFactory.getLogger(javaClass)!!
 
+	@Suppress("unused")
 	@ExceptionHandler(Exception::class)
 	fun advice(ex: Exception): ResponseEntity<String> {
 		log.info("Something went wrong hello", ex)
