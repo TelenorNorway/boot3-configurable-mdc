@@ -69,7 +69,8 @@ Similarly, we can create a default key that must be manually enabled in the
 application properties.
 
 <!-- @formatter:off -->
-```java,noinspect
+<!-- @noinspection -->
+```java
 registry.define(
   "request.id",
   false, // enabled = false | true
