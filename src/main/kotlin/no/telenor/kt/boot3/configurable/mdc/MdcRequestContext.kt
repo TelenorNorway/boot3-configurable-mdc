@@ -32,6 +32,7 @@ import java.io.BufferedReader
 import java.security.Principal
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
+import kotlin.reflect.KClass
 
 class MdcRequestContext(
 	beanFactory: BeanFactory,
@@ -142,6 +143,14 @@ class MdcRequestContext(
 	override fun getPart(name: String?): Part = request.getPart(name)
 	override fun <T : HttpUpgradeHandler?> upgrade(httpUpgradeHandlerClass: Class<T>?): T = request.upgrade(httpUpgradeHandlerClass)
 	// @formatter:on
+
+	@Suppress("UNCHECKED_CAST")
+	fun <T> get(
+		key: String,
+		@Suppress("UNUSED_PARAMETER") clazz: Class<T>
+	) = get(key) as T
+
+	fun <T : Any> get(key: String, klass: KClass<T>) = get(key, klass.java)
 
 	companion object {
 		private val current = ConcurrentHashMap<HttpServletRequest, MdcRequestContext>()
