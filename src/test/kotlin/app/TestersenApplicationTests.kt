@@ -10,6 +10,8 @@ import kotlin.test.Test
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class TestersenApplicationTests : TestFetch {
 
+	// note: IntelliJ beef, suppress is needed for some reason...
+	@Suppress("unused")
 	@Autowired
 	override lateinit var testRestTemplate: LocalTestRestTemplate
 
