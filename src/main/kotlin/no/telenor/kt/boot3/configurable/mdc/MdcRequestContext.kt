@@ -144,7 +144,7 @@ class MdcRequestContext(
 	override fun <T : HttpUpgradeHandler?> upgrade(httpUpgradeHandlerClass: Class<T>?): T = request.upgrade(httpUpgradeHandlerClass)
 	// @formatter:on
 
-	@Suppress("UNCHECKED_CAST", "unused", "UNUSED_PARAMETER")
+	@Suppress("UNCHECKED_CAST", "UNUSED_PARAMETER")
 	fun <T> get(
 		key: String,
 		clazz: Class<T>
