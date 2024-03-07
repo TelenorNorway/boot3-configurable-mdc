@@ -1,6 +1,7 @@
 plugins {
 	kotlin("jvm") version "1.9.22"
 	kotlin("plugin.spring") version "1.9.22"
+	kotlin("kapt") version "1.9.22"
 	id("org.springframework.boot") version "3.2.3"
 	id("io.spring.dependency-management") version "1.1.4"
 	id("sh.tnn") version "0.2.0"
@@ -15,6 +16,7 @@ repositories {
 }
 
 dependencies {
+	kapt("org.springboot.boot:spring-boot-configuration-processor:3.2.3")
 	api("no.telenor.kt:mdc-transaction:0.2.+")
 	compileOnly("org.springframework.boot:spring-boot-starter-web")
 	testImplementation(kotlin("test"))
