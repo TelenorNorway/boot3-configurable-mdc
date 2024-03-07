@@ -4,12 +4,13 @@ import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.BeanFactory
+import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
-@Order(0)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 class MdcRequestContextFilter(private val beanFactory: BeanFactory) : OncePerRequestFilter() {
 	override fun doFilterInternal(
 		request: HttpServletRequest,
