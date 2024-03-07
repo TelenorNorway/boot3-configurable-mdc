@@ -1,9 +1,9 @@
 plugins {
-	kotlin("jvm") version "1.9.20"
-	kotlin("plugin.spring") version "1.9.20"
-	id("org.springframework.boot") version "3.1.5"
-	id("io.spring.dependency-management") version "1.1.3"
-	id("no.ghpkg") version "0.3.3"
+	kotlin("jvm") version "1.9.22"
+	kotlin("plugin.spring") version "1.9.22"
+	id("org.springframework.boot") version "3.2.3"
+	id("io.spring.dependency-management") version "1.1.4"
+	id("sh.tnn") version "0.2.0"
 	`maven-publish`
 }
 
@@ -12,7 +12,7 @@ version = versioning.environment()
 
 repositories {
 	mavenCentral()
-	git.hub("telenornorway")
+	telenor.public()
 }
 
 dependencies {
