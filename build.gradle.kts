@@ -8,7 +8,6 @@ plugins {
 }
 
 group = "no.telenor.kt"
-version = versioning.environment()
 
 repositories {
 	mavenCentral()
