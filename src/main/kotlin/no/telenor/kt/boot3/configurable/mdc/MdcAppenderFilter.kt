@@ -16,7 +16,7 @@ class MdcAppenderFilter(
 	private val keyRegistry: KeyRegistry,
 	// ensure that this filter is loaded after the request context
 	// filter
-	@Suppress("UNUSED_PARAMETER") `_`: MdcRequestContextFilter,
+	@Suppress("UNUSED_PARAMETER") mdcRequestContextFilter: MdcRequestContextFilter,
 ) : OncePerRequestFilter() {
 	override fun doFilterInternal(
 		request: HttpServletRequest,
