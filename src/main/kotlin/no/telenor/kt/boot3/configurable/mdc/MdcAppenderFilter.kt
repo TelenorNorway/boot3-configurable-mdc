@@ -4,14 +4,20 @@ import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import no.telenor.kt.MDCTransaction
+import org.springframework.context.annotation.Configuration
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 
-@Component
-@Order(Ordered.LOWEST_PRECEDENCE)
-class MdcAppenderFilter(private val keyRegistry: KeyRegistry) : OncePerRequestFilter() {
+@Configuration
+@Order(Ordered.HIGHEST_PRECEDENCE)
+class MdcAppenderFilter(
+	private val keyRegistry: KeyRegistry,
+	// ensure that this filter is loaded after the request context
+	// filter
+	@Suppress("UNUSED_PARAMETER") `_`: MdcRequestContextFilter,
+) : OncePerRequestFilter() {
 	override fun doFilterInternal(
 		request: HttpServletRequest,
 		response: HttpServletResponse,
