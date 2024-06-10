@@ -16,7 +16,7 @@ class MdcRequestContextFilter(private val beanFactory: BeanFactory) : OncePerReq
 	override fun doFilterInternal(
 		request: HttpServletRequest,
 		response: HttpServletResponse,
-		filterChain: FilterChain
+		filterChain: FilterChain,
 	) {
 		MdcRequestContext.push(request, beanFactory)
 		try {
